@@ -1,0 +1,36 @@
+.container {
+  background-color: rgb(159, 188, 159);
+  width: fit-content;
+  padding: 1.5em;
+  border-radius: 0.5em;
+  border: rgb(121, 171, 143) solid 1px;
+  margin: 0.5em;
+}
+
+.closeButton {
+  border-color: black;
+  border-radius: 1em;
+  font: bolder;
+  background: none;
+}
+:hover .closeButton {
+  background-color: whitesmoke;
+  color: black;
+  font: bolder;
+}
+
+.image {
+  border-radius: 2em;
+}
+
+.name {
+  padding: 0;
+  font-weight: bolder;
+  font-size: xx-large;
+  color: rgb(5, 50, 5);
+}
+
+.gender {
+  padding: 0;
+  font-weight: lighter;
+}
