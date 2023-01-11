@@ -5,7 +5,7 @@ export default function SearchBar(props) {
     <div className={styles.container}>
       <input className={styles.input} type="search" />
       <button className={styles.button} onClick={() => props.onSearch("tuki")}>
-        Add
+        Buscar
       </button>
     </div>
   );

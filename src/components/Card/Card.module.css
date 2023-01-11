@@ -13,7 +13,7 @@
   font: bolder;
   background: none;
 }
-:hover .closeButton {
+.closeButton:hover {
   background-color: whitesmoke;
   color: black;
   font: bolder;
