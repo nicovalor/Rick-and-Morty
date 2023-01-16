@@ -1,6 +1,6 @@
 .container {
   background-color: rgb(159, 188, 159);
-  width: fit-content;
+  max-width: 100vw;
   padding: 0 1em;
   border-radius: 0.5em;
   border: rgb(121, 171, 143) solid 1px;
