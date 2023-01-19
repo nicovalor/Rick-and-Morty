@@ -1,8 +1,18 @@
 .container {
+  width: 100%;
   display: flex;
   flex-direction: row;
-  background-color: beige;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  width: fit-content;
+  background-color: beige;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 800px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+  }
 }

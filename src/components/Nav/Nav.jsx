@@ -6,8 +6,12 @@ export default function Nav(props) {
   return (
     <>
       <div className={styles.nav}>
-        <Link to="/home">Home</Link>
-        <Link to="/about">About</Link>
+        <Link classname={styles.links} to="/home">
+          Home
+        </Link>
+        <Link classname={styles.links} to="/about">
+          About
+        </Link>
         <SearchBar onSearch={props.onSearch} />
       </div>
     </>
