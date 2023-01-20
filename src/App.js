@@ -56,7 +56,7 @@ function App() {
     setCharacter(characters.filter((char) => char.id !== characterID));
   };
   return (
-    <div style={{ padding: 0, backgroundColor: "beige", margin: 0 }}>
+    <div style={{ padding: 0, margin: 0 }}>
       {location.pathname !== "/" && <Nav onSearch={onSearch} />}
       <Routes>
         <Route path="/" element={<Form login={login} />}></Route>

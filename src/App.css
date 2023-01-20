@@ -4,5 +4,6 @@
 
 body {
   margin: 0;
-  background-color: beige;
+  background: linear-gradient(rgb(3, 3, 78), rgb(21, 2, 79));
+  height: 100vh;
 }

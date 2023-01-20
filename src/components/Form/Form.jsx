@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import validation from "../../utils/validation";
-import styles from "./Form.module";
+import styles from "./Form.module.css";
 
 export default function Form(props) {
   const [userData, setUserData] = useState({
@@ -33,26 +33,35 @@ export default function Form(props) {
   };
   return (
     <div className={styles.container}>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username"></label>
-        <input
-          type="text"
-          name="username"
-          placeholder="Nombre de usuario..."
-          value={userData.username}
-          onChange={handleInputChange}
-        />
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="username"></label>
+          <input
+            className={styles.input}
+            type="text"
+            name="username"
+            placeholder="Nombre de usuario..."
+            value={userData.username}
+            onChange={handleInputChange}
+          />
+        </div>
         {errors.username && <p>{errors.username}</p>}
-        <label htmlFor="password"></label>
-        <input
-          type="password"
-          name="password"
-          placeholder="Ingrese su password..."
-          value={userData.password}
-          onChange={handleInputChange}
-        />
-        {/* {errors.password && <p>{errors.password}</p>} */}
-        <button type="submit">INGRESAR</button>
+
+        <div>
+          <label htmlFor="password"></label>
+          <input
+            className={styles.input}
+            type="password"
+            name="password"
+            placeholder="Ingrese su password..."
+            value={userData.password}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <button type="submit" className={styles.button}>
+          INGRESAR
+        </button>
       </form>
     </div>
   );
