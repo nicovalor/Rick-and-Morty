@@ -1,6 +1,6 @@
 .container {
   background: rgba(43, 143, 26, 0.19);
-  border-radius: 16px;
+  border-radius: 5rem;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(1.8px);
   -webkit-backdrop-filter: blur(1.8px);
@@ -22,10 +22,12 @@
 }
 
 .closeButton {
-  border-color: black;
+  border-color: chartreuse;
   border-radius: 1em;
   font: bolder;
   background: none;
+  color: white;
+  margin-top: 0.3rem;
 }
 .closeButton:hover {
   background-color: whitesmoke;
@@ -35,7 +37,7 @@
 }
 
 .image {
-  border-radius: 2rem;
+  border-radius: 10rem;
   width: 250px;
   max-height: 250px;
   justify-self: center;
@@ -46,13 +48,31 @@
   font-weight: bolder;
   font-size: x-large;
   color: #ffffff;
+  display: flex;
+  justify-content: center;
 }
 
 .gender {
   padding: 0;
   font-weight: lighter;
   color: #ffffff;
+  display: flex;
+  justify-content: center;
 }
 .species {
   color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+.cardButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.favButton {
+  margin-top: 0.3rem;
+  background: none;
+  border-color: chartreuse;
 }

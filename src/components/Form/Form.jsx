@@ -45,7 +45,7 @@ export default function Form(props) {
             onChange={handleInputChange}
           />
         </div>
-        {errors.username && <p>{errors.username}</p>}
+        {errors.username && <p className={styles.error}>{errors.username}</p>}
 
         <div>
           <label htmlFor="password"></label>

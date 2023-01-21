@@ -5,16 +5,18 @@ import { Link } from "react-router-dom";
 export default function Nav(props) {
   return (
     <>
-      <div className={styles.nav}>
-        <div className={styles.linkContainer}>
-          <Link className={styles.links} to="/home">
-            Home
-          </Link>
-          <Link className={styles.links} to="/about">
-            About
-          </Link>
+      <div className={styles.container}>
+        <div className={styles.nav}>
+          <div className={styles.linkContainer}>
+            <Link className={styles.links} to="/home">
+              Home
+            </Link>
+            <Link className={styles.links} to="/about">
+              About
+            </Link>
+          </div>
+          <SearchBar onSearch={props.onSearch} />
         </div>
-        <SearchBar onSearch={props.onSearch} />
       </div>
     </>
   );
