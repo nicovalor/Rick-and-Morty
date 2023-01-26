@@ -1,5 +1,6 @@
 const http = require("http");
 const getCharById = require("../controllers/getCharById");
+const getCharDetail = require("../controllers/getCharDetails");
 
 http
   .createServer((req, res) => {
@@ -9,6 +10,8 @@ http
     const url = entireUrl.join("/");
     if (url.includes("onsearch")) {
       getCharById(res, id);
+    } else if (url.includes("detail")) {
+      getCharDetail(res, id);
     }
   })
   .listen(3001, "localhost");
