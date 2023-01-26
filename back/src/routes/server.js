@@ -1,21 +1,14 @@
 const http = require("http");
-const characters = require("../utils/data");
-//const PORT = 3001;
+const getCharById = require("../controllers/getCharById");
 
 http
   .createServer((req, res) => {
-    const entUrl = req.url.split("/");
-    const id = Number(entUrl.pop());
-    const url = entUrl.join("/");
-    if (url === "/rickandmorty/character") {
-      const character = characters.find((ch) => ch.id === id);
-      if (character) {
-        res.writeHead(200, { "Content-Type": "application/json" });
-        res.end(JSON.stringify(character));
-      } else {
-        res.writeHead(404, { "Content-Type": "plain/text" });
-        res.end("404: route not found");
-      }
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    const entireUrl = req.url.split("/");
+    const id = entireUrl.pop();
+    const url = entireUrl.join("/");
+    if (url.includes("onsearch")) {
+      getCharById(res, id);
     }
   })
   .listen(3001, "localhost");
