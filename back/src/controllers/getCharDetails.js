@@ -24,4 +24,4 @@ const getCharDetail = (res, id) => {
     });
 };
 
-module.export(getCharDetail);
+module.export = { getCharDetail };
