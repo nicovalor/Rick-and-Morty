@@ -29,10 +29,10 @@ function App() {
   };
 
   const onSearch = (characterID) => {
-    fetch(`https://rickandmortyapi.com/api/character/${characterID}`)
+    fetch(`http://localhost:3001/rickandmorty/character/${characterID}`)
       .then((response) => response.json())
       .then((data) => {
-        if (data.name) {
+        if (data.id) {
           if (!isRepited(data.id)) {
             setCharacter((prevState) => [...prevState, data]);
           } else {
