@@ -58,7 +58,11 @@ function App() {
   };
   return (
     <div style={{ padding: 0, margin: 0 }}>
-      {location.pathname !== "/" && <Nav onSearch={onSearch} />}
+      {location.pathname === "/" ? (
+        <Form login={login} />
+      ) : (
+        <Nav onSearch={onSearch} />
+      )}
       <Routes>
         <Route path="/" element={<Form login={login} />}></Route>
         <Route
