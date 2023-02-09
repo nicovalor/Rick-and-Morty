@@ -4,6 +4,7 @@ import Cards from "./components/Cards/Cards.jsx";
 import Nav from "./components/Nav/Nav";
 import About from "./components/About/about";
 import Detail from "./components/Detail/details";
+import Favorites from "./components/Favorites/Favorites";
 import { useEffect, useState } from "react";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Form from "./components/Form/Form";
@@ -66,6 +67,7 @@ function App() {
         ></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/detail/:detailId" element={<Detail />}></Route>
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </div>
   );

@@ -4,26 +4,26 @@ import { addFavorite, deleteFavorite } from "../../redux/action";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 
-export function Card(props) {
+export function Card({ name, gender, onClose, species, image, id }) {
   const [isFav, setIsFav] = useState(false);
   const dispatch = useDispatch();
   const myFavorites = useSelector((state) => state.myFavorites);
 
   useEffect(() => {
     myFavorites.forEach((fav) => {
-      if (fav.id === props.id) {
+      if (fav.id === id) {
         setIsFav(true);
       }
     });
   }, [myFavorites]);
 
-  const handleFavorite = (id) => {
+  const handleFavorite = () => {
     if (isFav) {
       setIsFav(false);
       dispatch(deleteFavorite(id));
     } else {
       setIsFav(true);
-      dispatch(addFavorite(id));
+      dispatch(addFavorite({ name, gender, onClose, species, image, id }));
     }
   };
   return (
@@ -32,28 +32,28 @@ export function Card(props) {
         {isFav ? (
           <button
             className={styles.favButton}
-            onClick={() => handleFavorite(props.id)}
+            onClick={() => handleFavorite(id)}
           >
             ❤️
           </button>
         ) : (
           <button
             className={styles.favButton}
-            onClick={() => handleFavorite(props.id)}
+            onClick={() => handleFavorite(id)}
           >
             🤍
           </button>
         )}
-        <button className={styles.closeButton} onClick={props.onClose}>
+        <button className={styles.closeButton} onClick={onClose}>
           X
         </button>
       </div>
-      <Link to={`/detail/${props.id}`}>
-        <h2 className={styles.name}>{props.name}</h2>
+      <Link to={`/detail/${id}`}>
+        <h2 className={styles.name}>{name}</h2>
       </Link>
-      <h2 className={styles.species}>{props.species}</h2>
-      <h2 className={styles.gender}>{props.gender}</h2>
-      <img className={styles.image} src={props.image} alt="" />
+      <h2 className={styles.species}>{species}</h2>
+      <h2 className={styles.gender}>{gender}</h2>
+      <img className={styles.image} src={image} alt="" />
     </div>
   );
 }
