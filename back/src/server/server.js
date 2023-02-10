@@ -65,23 +65,41 @@ app.get("/rickandmorty/detail/:detailId", async (req, res) => {
 
 let fav = [];
 
-app.get("/rickandmorty/fav", (req, res) => {
-  res.status(200).json(fav);
+app.get("/rickandmorty/fav", async (req, res) => {
+  try {
+    const allFavorites = await getAllFavorites();
+
+    if (allFavorites.error) throw new Error(allFavorites.error);
+
+    return res.status(200).json(allFavorites);
+  } catch (error) {
+    return res.status(404).send(error.message);
+  }
 });
 
-app.post("/rickandmorty/fav", (req, res) => {
-  fav.push(req.body);
+app.post("/rickandmorty/fav", async (req, res) => {
+  try {
+    const characterFav = await postFav(req.body);
 
-  res.status(200).send("Se guardaron correctamente los datos");
+    if (characterFav.error) throw new Error(characterFav.error);
+
+    res.status(200).json(characterFav);
+  } catch (error) {
+    return res.status(404).send(error.message);
+  }
 });
 
-app.delete("/rickandmorty/fav/:id", (req, res) => {
-  const { id } = req.params;
+app.delete("/rickandmorty/fav/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteFavorite = await deleteFavoriteById(parseInt(id));
 
-  const favFiltered = fav.filter((char) => char.id !== parseInt(id));
-  fav = favFiltered;
+    if (deleteFavorite.error) throw new Error(deleteFavorite.error);
 
-  res.status(200).send("Se eliminó correctamente");
+    return res.status(200).send(deleteFavorite);
+  } catch (error) {
+    return res.status(404).send(error.message);
+  }
 });
 
 module.exports = app;

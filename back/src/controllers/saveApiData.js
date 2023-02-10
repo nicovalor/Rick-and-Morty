@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { Character } = require("../DB_connection");
+const { Character } = require("../db_conections");
 
 const getApiData = async () => {
   try {

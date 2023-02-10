@@ -1,11 +1,11 @@
 const app = require("./server");
-const { sequelize } = require("../DB_connection");
+const { sequelize } = require("../db_conections");
 const saveApiData = require("../controllers/saveApiData");
 
 sequelize
   .sync({ force: true })
   .then(async () => {
-    console.log("DB conectada, master");
+    console.log("DB conectada");
     // console.log(await saveApiData());
     await saveApiData();
     app.listen(3001, () => {

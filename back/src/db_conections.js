@@ -1,6 +1,6 @@
 require("dotenv").config();
 const { Sequelize } = require("sequelize");
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
+const { DB_USER, DB_HOST, DB_NAME } = process.env;
 const characterModel = require("./models/Character");
 
 /*
@@ -11,7 +11,7 @@ Recuerda pasarle la información de tu archivo '.env'.
 URL ----> postgres://DB_USER:DB_PASSWORD@DB_HOST/rickandmorty
 */
 const sequelize = new Sequelize(
-  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
+  `postgres://${DB_USER}:River Plate@${DB_HOST}/${DB_NAME}`,
   { logging: false, native: false }
 );
 

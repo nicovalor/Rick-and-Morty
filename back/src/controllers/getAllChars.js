@@ -1,4 +1,4 @@
-const { Character } = require("../models/Character");
+const { Character } = require("../db_conections");
 
 const getAllChars = async () => {
   try {
